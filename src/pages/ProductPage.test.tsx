@@ -1,0 +1,17 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { afterEach,describe,expect,it,vi } from 'vitest';
+import ProductPage from './ProductPage';
+const product={id:'p-002',name:'手机直播【开户】',description:'商品说明',image:'/products/source-002.png',icon:'手',marketPriceCents:19900,deliveryType:'content' as const,status:'active' as const,category:'手机直播带货',categories:['手机直播带货'],categoryIds:['c17'],priceCents:12375,stock:100,specs:[{id:'p-002-s1',name:'默认规格',priceCents:12375,stock:100,status:'active' as const}]};
+function mockProduct(value:any=product,status=200){vi.stubGlobal('fetch',vi.fn((input:RequestInfo|URL)=>String(input).includes('/api/catalog/products/')?Promise.resolve(new Response(status===200?JSON.stringify({data:value}):JSON.stringify({error:{code:'NOT_FOUND',message:'Not found'}}),{status,headers:{'Content-Type':'application/json'}})):Promise.resolve(new Response(null,{status:204}))))}
+function openProduct(id='p-002'){render(<MemoryRouter initialEntries={[`/products/${id}`]}><Routes><Route path="/products/:id" element={<ProductPage/>}/></Routes></MemoryRouter>)}
+afterEach(()=>{vi.unstubAllGlobals();vi.restoreAllMocks()});
+describe('商品详情路由',()=>{
+ it('未知或下架商品不展示购买入口',async()=>{mockProduct(null,404);openProduct('missing');expect(await screen.findByRole('heading',{name:'商品不存在或已下架'})).toBeInTheDocument();expect(screen.queryByRole('link',{name:'立即购买'})).not.toBeInTheDocument()});
+ it('有效商品显示数据库价格库存和购买入口',async()=>{mockProduct();openProduct();expect(await screen.findByRole('heading',{name:product.name})).toBeInTheDocument();expect(screen.getByText('¥123.75')).toBeInTheDocument();expect(screen.getByText('库存：100')).toBeInTheDocument();expect(screen.getByRole('link',{name:'立即购买'})).toBeInTheDocument()});
+ it('超出库存或非整数数量不能购买',async()=>{mockProduct();openProduct();const input=await screen.findByRole('spinbutton',{name:'购买数量'});fireEvent.change(input,{target:{value:'1000000'}});expect(screen.getByRole('alert')).toHaveTextContent('购买数量需为');expect(screen.queryByRole('link',{name:'立即购买'})).not.toBeInTheDocument();fireEvent.change(input,{target:{value:'1.5'}});expect(screen.queryByRole('link',{name:'立即购买'})).not.toBeInTheDocument()});
+ it('购买链接包含数据库商品规格与数量',async()=>{mockProduct();openProduct();fireEvent.change(await screen.findByRole('spinbutton',{name:'购买数量'}),{target:{value:'2'}});const dest=new URL(screen.getByRole('link',{name:'立即购买'}).getAttribute('href')!,'http://localhost');expect(dest.pathname).toBe('/confirm-order');expect(dest.searchParams.get('product')).toBe('p-002');expect(dest.searchParams.get('spec')).toBe('p-002-s1');expect(dest.searchParams.get('quantity')).toBe('2')});
+ it('使用数据库配置售价，不按固定倍率重算',async()=>{mockProduct({...product,priceCents:14567,specs:[{...product.specs[0],priceCents:14567}]});openProduct();expect(await screen.findByText('¥145.67')).toBeInTheDocument()});
+ it('库存为0时阻止购买',async()=>{mockProduct({...product,stock:0,specs:[{...product.specs[0],stock:0}]});openProduct();expect(await screen.findByRole('button',{name:'暂时缺货'})).toBeDisabled();expect(screen.queryByRole('link',{name:'立即购买'})).not.toBeInTheDocument()});
+ it('非法数量可以通过加号恢复为一件',async()=>{mockProduct();openProduct();const input=await screen.findByRole('spinbutton',{name:'购买数量'});fireEvent.change(input,{target:{value:'0'}});fireEvent.click(screen.getByRole('button',{name:'增加购买数量'}));expect(input).toHaveValue(1);expect(screen.getByRole('link',{name:'立即购买'})).toBeInTheDocument()});
+});

@@ -1,0 +1,10 @@
+import { render, screen, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { afterEach, expect, it, vi } from 'vitest';
+import { UserFootmarks, UserMemberLevel, UserSpread } from './UserCenterPages';
+const ok=(data:unknown)=>Promise.resolve(new Response(JSON.stringify({data}),{status:200,headers:{'Content-Type':'application/json'}}));
+afterEach(()=>{vi.unstubAllGlobals();vi.restoreAllMocks();localStorage.clear()});
+function mockApi(){vi.stubGlobal('fetch',vi.fn((input:RequestInfo|URL)=>{const url=String(input);if(url.startsWith('/api/footmarks'))return ok({footmarks:[{productId:'p-real',productName:'真实浏览商品',productImagePath:'/products/p-005.png',priceCents:12345,viewedAt:'2026-10-23T09:00:00Z'}]});if(url.startsWith('/api/account/summary'))return ok({user:{id:'u1',username:'real_user',nickname:'真实用户',accountTier:'基础版站长',accountStatus:'active',createdAt:'2026-10-23T00:00:00Z'},orderCount:0,totalSpendCents:0});if(url.startsWith('/api/finance/summary'))return ok({availableBalanceCents:0,commissionBalanceCents:12345,frozenBalanceCents:0});return ok({})}))}
+it('我的足迹读取真实API记录而不是本地商品前六项',async()=>{mockApi();render(<MemoryRouter><UserFootmarks/></MemoryRouter>);expect(await screen.findByText('真实浏览商品')).toBeInTheDocument();expect(screen.getByText('¥123.45')).toBeInTheDocument();});
+it('会员等级只显示真实账户等级且不允许本地假升级',async()=>{mockApi();localStorage.setItem('51mai-member-level',JSON.stringify('合伙人'));render(<MemoryRouter><UserMemberLevel/></MemoryRouter>);expect(await screen.findByText('基础版站长')).toBeInTheDocument();expect(screen.queryByText('升级到此等级')).not.toBeInTheDocument();expect(screen.queryByText('合伙人')).not.toBeInTheDocument();});
+it('推广分销不再展示固定假指标假链接和假下级',async()=>{mockApi();render(<MemoryRouter><UserSpread/></MemoryRouter>);expect(await screen.findByText('¥123.45')).toBeInTheDocument();for(const fake of ['36','82','¥3,680','¥860','用户 C10002'])expect(screen.queryByText(fake)).not.toBeInTheDocument();expect(screen.queryByDisplayValue(/U10001/)).not.toBeInTheDocument();expect(screen.getByText(/推广关系.*未接入真实/)).toBeInTheDocument();});

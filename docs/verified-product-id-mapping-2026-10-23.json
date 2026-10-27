@@ -1,0 +1,252 @@
+{
+  "scope": "internal-reference-only",
+  "method": "exact-name-only",
+  "mappings": [
+    {
+      "localId": "p-001",
+      "localName": "合伙人权益-赠送同款货源站",
+      "upstreamProductId": "53",
+      "match": "exact"
+    },
+    {
+      "localId": "p-002",
+      "localName": "手机直播【开户】",
+      "upstreamProductId": "133",
+      "match": "exact"
+    },
+    {
+      "localId": "p-003",
+      "localName": "手机直播【无限开】",
+      "upstreamProductId": "131",
+      "match": "exact"
+    },
+    {
+      "localId": "p-004",
+      "localName": "980套餐包含100小时",
+      "upstreamProductId": "130",
+      "match": "exact"
+    },
+    {
+      "localId": "p-005",
+      "localName": "雷帝AI数字人直播年卡",
+      "upstreamProductId": "104",
+      "match": "exact"
+    },
+    {
+      "localId": "p-006",
+      "localName": "雷帝AI数字人直播测试卡",
+      "upstreamProductId": "103",
+      "match": "exact"
+    },
+    {
+      "localId": "p-007",
+      "localName": "专业版双数字人直播系统测试卡【升级合伙人无限0元提卡正版授权】",
+      "upstreamProductId": "73",
+      "match": "exact"
+    },
+    {
+      "localId": "p-008",
+      "localName": "青龙聚合AI【通用额度】",
+      "upstreamProductId": "100",
+      "match": "exact"
+    },
+    {
+      "localId": "p-009",
+      "localName": "青龙聚合AI代理后台",
+      "upstreamProductId": "91",
+      "match": "exact"
+    },
+    {
+      "localId": "p-010",
+      "localName": "青龙聚合AI【测试卡】",
+      "upstreamProductId": "54",
+      "match": "exact"
+    },
+    {
+      "localId": "p-011",
+      "localName": "雷帝AI数字人直播月卡",
+      "upstreamProductId": "105",
+      "match": "exact"
+    },
+    {
+      "localId": "p-012",
+      "localName": "某音采集 【无限卡密版】",
+      "upstreamProductId": "128",
+      "match": "exact"
+    },
+    {
+      "localId": "p-013",
+      "localName": "渠道变现助手",
+      "upstreamProductId": "127",
+      "match": "exact"
+    },
+    {
+      "localId": "p-014",
+      "localName": "数字人手机版【无限生成】",
+      "upstreamProductId": "126",
+      "match": "exact"
+    },
+    {
+      "localId": "p-015",
+      "localName": "AI超级员工【终端采购】",
+      "upstreamProductId": "124",
+      "match": "exact"
+    },
+    {
+      "localId": "p-016",
+      "localName": "升级合伙人赠送-数字人直播共享年卡3张",
+      "upstreamProductId": "59",
+      "match": "exact"
+    },
+    {
+      "localId": "p-017",
+      "localName": "龙虾获客【年卡】",
+      "upstreamProductId": "96",
+      "match": "exact"
+    },
+    {
+      "localId": "p-018",
+      "localName": "红薯全场景自动回复-合伙人无限拿码赠送后台",
+      "upstreamProductId": "34",
+      "match": "exact"
+    },
+    {
+      "localId": "p-019",
+      "localName": "合伙人手机开卡后台",
+      "upstreamProductId": "33",
+      "match": "exact"
+    },
+    {
+      "localId": "p-020",
+      "localName": "暴力获客-【升级合伙人无限0元提卡+后台无限开卡版】",
+      "upstreamProductId": "31",
+      "match": "exact"
+    },
+    {
+      "localId": "p-021",
+      "localName": "速客通后台无限开卡版 【升级合伙人无限0元提卡+后台无限开卡】",
+      "upstreamProductId": "82",
+      "match": "exact"
+    },
+    {
+      "localId": "p-022",
+      "localName": "某音采集 天卡",
+      "upstreamProductId": "129",
+      "match": "exact"
+    },
+    {
+      "localId": "p-023",
+      "localName": "DY综合截流系统永久卡【正版授权】",
+      "upstreamProductId": "9",
+      "match": "exact"
+    },
+    {
+      "localId": "p-024",
+      "localName": "本地版矩阵系统【贴牌授权商】",
+      "upstreamProductId": "27",
+      "match": "exact"
+    },
+    {
+      "localId": "p-025",
+      "localName": "GEO企业推广系统独立后台",
+      "upstreamProductId": "25",
+      "match": "exact"
+    },
+    {
+      "localId": "p-026",
+      "localName": "GEO独立后台充值专用",
+      "upstreamProductId": "65",
+      "match": "exact"
+    },
+    {
+      "localId": "p-027",
+      "localName": "GEO企业推广系统【贴牌授权商】",
+      "upstreamProductId": "29",
+      "match": "exact"
+    },
+    {
+      "localId": "p-028",
+      "localName": "一站式电商工作台【测试卡30张图片】",
+      "upstreamProductId": "120",
+      "match": "exact"
+    },
+    {
+      "localId": "p-029",
+      "localName": "全平台翘客测试卡",
+      "upstreamProductId": "117",
+      "match": "exact"
+    },
+    {
+      "localId": "p-030",
+      "localName": "全驱数字人测试卡",
+      "upstreamProductId": "113",
+      "match": "exact"
+    },
+    {
+      "localId": "p-031",
+      "localName": "本地版矩阵系统测试卡",
+      "upstreamProductId": "23",
+      "match": "exact"
+    },
+    {
+      "localId": "p-032",
+      "localName": "抖音综合工具天卡",
+      "upstreamProductId": "83",
+      "match": "exact"
+    },
+    {
+      "localId": "p-033",
+      "localName": "腾讯广告投放系统贴牌定金【正版授权】",
+      "upstreamProductId": "42",
+      "match": "exact"
+    },
+    {
+      "localId": "p-034",
+      "localName": "不开播1000包500有效",
+      "upstreamProductId": "44",
+      "match": "exact"
+    },
+    {
+      "localId": "p-035",
+      "localName": "青龙聚合AI后台充值【充值多少购买多少】",
+      "upstreamProductId": "60",
+      "match": "exact"
+    },
+    {
+      "localId": "p-036",
+      "localName": "Agent超级员工贴牌定金",
+      "upstreamProductId": "70",
+      "match": "exact"
+    },
+    {
+      "localId": "p-037",
+      "localName": "综合工具全套贴牌OEM【正版授权】",
+      "upstreamProductId": "51",
+      "match": "exact"
+    },
+    {
+      "localId": "p-038",
+      "localName": "海外GEO开户",
+      "upstreamProductId": "109",
+      "match": "exact"
+    },
+    {
+      "localId": "p-039",
+      "localName": "海外GEO贴牌充值专用",
+      "upstreamProductId": "110",
+      "match": "exact"
+    },
+    {
+      "localId": "p-040",
+      "localName": "AI超级员工【终端无限开】",
+      "upstreamProductId": "123",
+      "match": "exact"
+    },
+    {
+      "localId": "p-041",
+      "localName": "AI超级员工【充值算力】",
+      "upstreamProductId": "125",
+      "match": "exact"
+    }
+  ]
+}

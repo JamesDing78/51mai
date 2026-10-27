@@ -1,0 +1,42 @@
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencies and generated output
+node_modules/
+.vendor/
+vendor/
+.next/
+dist/
+dist-server/
+build/
+coverage/
+*.log
+
+# Machine and local tools
+.DS_Store
+._*
+.oracle/
+.codegraph/
+
+# Runtime and private business data
+runtime/
+backups/
+private-data/
+*.sqlite
+*.sqlite3
+*.db
+
+# Existing reference materials are not application source
+【林豹团队】多平台综合工具教程*/
+
+# TypeScript build metadata
+*.tsbuildinfo
+
+# Local visual QA captures
+artifacts/qa/

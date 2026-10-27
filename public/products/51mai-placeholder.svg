@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title description">
+  <title id="title">51mai 商品图片</title>
+  <desc id="description">51mai 自有品牌的中性商品占位图</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081a33"/>
+      <stop offset="0.55" stop-color="#123c72"/>
+      <stop offset="1" stop-color="#0a8f90"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="55%">
+      <stop offset="0" stop-color="#61e3d6" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#61e3d6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1200" rx="72" fill="url(#background)"/>
+  <circle cx="600" cy="490" r="420" fill="url(#glow)"/>
+  <path d="M280 320h640v420H280z" fill="#fff" fill-opacity=".08" stroke="#8af1e6" stroke-opacity=".38" stroke-width="4"/>
+  <path d="M360 680 505 535l105 105 122-122 108 108v54H360z" fill="#77e8dc" fill-opacity=".36"/>
+  <circle cx="470" cy="455" r="54" fill="#ffe681"/>
+  <text x="600" y="850" fill="#fff" font-family="Arial, PingFang SC, sans-serif" font-size="130" font-weight="700" text-anchor="middle">51mai</text>
+  <text x="600" y="940" fill="#bffaf2" font-family="Arial, PingFang SC, sans-serif" font-size="42" letter-spacing="10" text-anchor="middle">数字商品服务</text>
+</svg>

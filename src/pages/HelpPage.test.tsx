@@ -1,0 +1,2 @@
+import { render,screen } from '@testing-library/react';import { MemoryRouter } from 'react-router-dom';import HelpPage from './HelpPage';
+describe('F09 客服与帮助中心',()=>{it('展示FAQ和人工客服入口',()=>{render(<MemoryRouter><HelpPage/></MemoryRouter>);expect(screen.getByRole('heading',{name:'客服与帮助中心'})).toBeInTheDocument();expect(screen.getByText('常见问题')).toBeInTheDocument();expect(screen.getByText('人工客服')).toBeInTheDocument();expect(screen.getByRole('button',{name:'联系咨询'})).toBeInTheDocument();});});
